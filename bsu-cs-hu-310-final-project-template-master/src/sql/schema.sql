@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS instructors(
     class_section_id INT AUTO_INCREMENT NOT NULL,
     class_id INT NOT NULL,
     instructor_id INT NOT NULL,
-    term_id INT NOT NULL
+    term_id INT NOT NULL,
     PRIMARY KEY(class_section_id),
     FOREIGN KEY (class_id) REFERENCES classes(class_id),
     FOREIGN KEY (instructor_id) REFERENCES instructors(instructor_id),
