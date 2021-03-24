@@ -78,7 +78,8 @@ CREATE TABLE IF NOT EXISTS instructors(
     PRIMARY KEY(class_registration_id),
     FOREIGN KEY (class_section_id) REFERENCES class_sections(class_section_id),
     FOREIGN KEY (student_id) REFERENCES students(student_id),
-    FOREIGN KEY (grade_id) REFERENCES grades(grade_id)
+    FOREIGN KEY (grade_id) REFERENCES grades(grade_id),
+    UNIQUE KEY unique_registration(class_section_id, student_id)
     );
     
   
