@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS instructors(
     UNIQUE KEY unique_registration(class_section_id, student_id)
     );
     
-DELIMITER $$ 
+ DELIMITER $$ 
 CREATE FUNCTION convert_to_grade_point(letter_grade char(2))
    RETURNS INT 
    DETERMINISTIC 
@@ -103,9 +103,11 @@ BEGIN
   IF letter_grade = 'F' THEN
     SET num_grade = 0;
   END IF;
+  IF letter_grade = NULL THEN
+    SET num_grade = NULL;
+  END IF;
   RETURN num_grade;
 END $$
-    
   
   
   
